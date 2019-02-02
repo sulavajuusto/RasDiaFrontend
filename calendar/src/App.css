@@ -206,9 +206,9 @@ main {
 
 .calendar .body .cell .mittaus {
   position: absolute;
-  font-size: 150%;
+  font-size: 200%;
   line-height: 1;
-  top: 1.75em;
+  top: 1em;
   right: 1.75em;
   font-weight: 700;
   color: rgb(73, 116, 77);
