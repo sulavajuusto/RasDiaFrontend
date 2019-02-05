@@ -6,10 +6,14 @@ import fi from "date-fns/locale/fi";
 export class MittausItem extends Component {
   getStyle = () => {
     return {
-      background: this.props.mittaus.mittaus1 > 5 ? "#FF4500" : "#f4f4f4",
+      border: ` 2px ${
+        this.props.mittaus.mittaus1 > 7 ? "#FF4500" : "#f4f4f4"
+      } solid`,
       padding: "10px",
-      borderBottom: "1px #ccc dotted",
-      textDecoration: "none"
+      margin: "10px",
+      textDecoration: "none",
+      background: "#fff",
+      boxShadow: "0 10px 6px -6px #777"
     };
   };
 
@@ -18,17 +22,28 @@ export class MittausItem extends Component {
     return (
       <div style={this.getStyle()}>
         <div>
-          <span style={spanStyle}>
-            {dateFns.format(date, "Do MMMM YY", { locale: fi })}
-          </span>
-          <span style={spanStyle}>{mittaus1}</span>
-          <span style={spanStyle}>{comment}</span>
+          <div style={mittausStyle}>
+            <span className="icon mittausitemicon">date_range</span>
+            {dateFns.format(date, "Do MMMM YYYY", { locale: fi })}
+          </div>
+          <div style={mittausStyle}>
+            <span className="icon mittausitemicon">access_time</span>
+            {dateFns.format(date, "H:m", { locale: fi })}
+          </div>
           <button
             onClick={this.props.delMittaus.bind(this, mittausId)}
-            style={btnStyle}
+            className="delbutton"
           >
             x
           </button>
+          <div style={mittausStyle}>
+            <span className="icon mittausitemicon">colorize</span> {mittaus1}{" "}
+            {" mmol/l"}
+          </div>
+          <div style={mittausStyle}>
+            <span className="icon mittausitemicon">comment</span>
+            {comment}
+          </div>
         </div>
       </div>
     );
@@ -41,18 +56,9 @@ MittausItem.propTypes = {
   delMittaus: PropTypes.func.isRequired
 };
 
-const btnStyle = {
-  background: "#ff0000",
-  color: "#fff",
-  border: "none",
-  padding: "5px 9px",
-  borderRadius: "50%",
-  cursor: "pointer",
-  float: "right"
-};
-
-const spanStyle = {
+const mittausStyle = {
   flex: "10",
-  padding: "0px 50px"
+  padding: "0px 50px",
+  flexWrap: "wrap"
 };
 export default MittausItem;

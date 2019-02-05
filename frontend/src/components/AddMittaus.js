@@ -45,53 +45,63 @@ export class AddMittaus extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
-        <input
-          type="text"
-          name="userId"
-          style={{ flex: "10", padding: "10px" }}
-          placeholder="Käyttäjänimi"
-          value={this.state.userId}
-          onChange={this.onChange}
-        />
-        <input
-          type="text"
-          name="date"
-          style={{ flex: "10", padding: "10px" }}
-          placeholder="Päivämäärä"
-          onFocus={this._onFocus}
-          onBlur={this._onBlur}
-          value={this.state.date}
-          onChange={this.onChange}
-        />
-        {/* <DatePicker
+      <form onSubmit={this.onSubmit} className="MittausForm">
+        <div>
+          <input
+            type="text"
+            name="userId"
+            style={{ flex: "10", padding: "10px" }}
+            placeholder="Käyttäjänimi"
+            value={this.state.userId}
+            onChange={this.onChange}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="date"
+            style={{ flex: "10", padding: "10px" }}
+            placeholder="Päivämäärä"
+            onFocus={this._onFocus}
+            onBlur={this._onBlur}
+            value={this.state.date}
+            onChange={this.onChange}
+          />
+          {/* <DatePicker
           selected={this.state.date1}
           onChange={this.handleChange}
           onBlur={this._onBlur}
           onFocus={this._onFocus}
         /> */}
-        <input
-          type="text"
-          name="mittaus1"
-          style={{ flex: "10", padding: "10px" }}
-          placeholder="mittaustulos"
-          value={this.state.mittaus1}
-          onChange={this.onChange}
-        />
-        <input
-          type="text"
-          name="comment"
-          style={{ flex: "10", padding: "10px" }}
-          placeholder="Lisäkommentti"
-          value={this.state.comment}
-          onChange={this.onChange}
-        />
-        <input
-          type="submit"
-          value="Submit"
-          className="btn"
-          style={{ flex: "1" }}
-        />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="mittaus1"
+            style={{ flex: "10", padding: "10px" }}
+            placeholder="mittaustulos"
+            value={this.state.mittaus1}
+            onChange={this.onChange}
+          />
+        </div>
+        <div>
+          <input
+            type="text"
+            name="comment"
+            style={{ flex: "10", padding: "10px" }}
+            placeholder="Lisäkommentti"
+            value={this.state.comment}
+            onChange={this.onChange}
+          />
+        </div>
+        <div>
+          <input
+            type="submit"
+            value="Submit"
+            className="btn"
+            style={{ flex: "1" }}
+          />
+        </div>
       </form>
     );
   }

@@ -14,6 +14,11 @@ a {
 .container {
   padding: 0 1rem;
 }
+/* 
+.paivanMittaukset {
+  position: absolute;
+  width: 20%;
+} */
 
 .btn {
   display: inline-block;
@@ -59,8 +64,8 @@ a {
   --text-color: rgb(99, 117, 216);
   --text-color-light: rgb(121, 117, 117);
   --border-color: #eee;
-  --bg-color: #e1effa;
-  --neutral-color: #fff;
+  --bg-color: #9ec9eb;
+  --neutral-color: rgb(250, 250, 250);
   --mittaus-color: rgb(140, 226, 114);
 }
 
@@ -103,7 +108,7 @@ header #logo .icon {
 main {
   display: block;
   margin: 0 auto;
-  margin-top: 5em;
+  margin-top: 3em;
   max-width: 50em;
 }
 
@@ -144,7 +149,17 @@ main {
   text-align: right;
 }
 
+.mittaukset {
+  margin-top: 3em;
+  display: block;
+  background: var(--bg-color);
+  position: absolute;
+  width: 20%;
 
+  padding: 4px;
+  font-weight: 700;
+  font-size: 115%;
+}
 /* Calendar */
 
 .calendar {
@@ -275,4 +290,50 @@ main {
   flex-grow: 0;
   flex-basis: calc(100%/7);
   width: calc(100%/7);
+}
+
+.mittausitemicon {
+  padding: 0px 5px 0px 0px;
+}
+.Lataus {
+  margin-top: 1em;
+  display: block;
+  background: rgb(255, 252, 252);
+  position: absolute;
+  width: 20%;
+  border: 0.3em solid #559fe4;
+  border-radius: 1%;
+  padding: 4px;
+  font-weight: 700;
+  font-size: 115%;
+}
+
+/* Delete button */
+
+.delbutton {
+  display: inline-flex;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 1000;
+  color: rgb(248, 48, 48);
+  background-color: rgb(230, 211, 211);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  float: right;
+  }
+
+.delbutton:hover {
+  background-color: rgb(231, 35, 35);
+  box-shadow: 0px 15px 20px rgba(231, 35, 35, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
 }

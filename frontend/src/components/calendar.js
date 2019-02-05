@@ -4,8 +4,7 @@ import fi from "date-fns/locale/fi";
 
 export class calendar extends Component {
   state = {
-    currentMonth: new Date(),
-    selectedDate: new Date()
+    currentMonth: new Date()
   };
   renderHeader() {
     const dateFormat = "MMMM GGGG";
@@ -50,7 +49,8 @@ export class calendar extends Component {
   }
 
   renderCells() {
-    const { currentMonth, selectedDate } = this.state;
+    const { currentMonth } = this.state;
+    const { selectedDate } = this.props;
     const monthStart = dateFns.startOfMonth(currentMonth);
     const monthEnd = dateFns.endOfMonth(monthStart);
     const startDate = dateFns.startOfISOWeek(monthStart);
@@ -58,7 +58,8 @@ export class calendar extends Component {
 
     const dateFormat = "D";
     const rows = [];
-    const mittauspaiva = (day) => this.props.mittaukset.find(x => dateFns.isSameDay(x.date, day));
+    const mittauspaiva = day =>
+      this.props.mittaukset.find(x => dateFns.isSameDay(x.date, day));
 
     let days = [];
     let day = startDate;
@@ -78,12 +79,22 @@ export class calendar extends Component {
                 : ""
             }`}
             key={day}
-            onClick={() => this.onDateClick(dateFns.parse(cloneDay))}
+            onClick={() => this.props.onDateClick(dateFns.parse(cloneDay))}
           >
             <span className="number">{formattedDate}</span>
             <span className="bg">{formattedDate}</span>
-            <span className={`mittaus ${mittauspaiva(day) === undefined ? "" : mittauspaiva(day).mittaus1 >= 7.5 ? "mittaus2" : ""}`}> 
-              {mittauspaiva(day) !== undefined ? mittauspaiva(day).mittaus1 :""}
+            <span
+              className={`mittaus ${
+                mittauspaiva(day) === undefined
+                  ? ""
+                  : mittauspaiva(day).mittaus1 >= 7.5
+                  ? "mittaus2"
+                  : ""
+              }`}
+            >
+              {mittauspaiva(day) !== undefined
+                ? mittauspaiva(day).mittaus1
+                : ""}
             </span>
           </div>
         );
@@ -99,12 +110,12 @@ export class calendar extends Component {
     return <div className="body">{rows}</div>;
   }
 
-  onDateClick = day => {
-    console.log(day);
-    this.setState({
-      selectedDate: day
-    });
-  };
+  // onDateClick = day => {
+  //   console.log(day);
+  //   this.setState({
+  //     selectedDate: day
+  //   });
+  // };
 
   nextMonth = () => {
     this.setState({
