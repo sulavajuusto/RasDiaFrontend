@@ -5,6 +5,7 @@ import Mittaukset from "./components/Mittaukset";
 import AddMittaus from "./components/AddMittaus";
 import Calendar from "./components/calendar";
 import PaivanMittaukset from "./components/PaivanMittaukset";
+
 import About from "./components/pages/About";
 import axios from "axios";
 import dateFns from "date-fns";
@@ -14,7 +15,8 @@ class App extends Component {
   state = {
     mittaukset: [],
     selectedDate: new Date(),
-    isLoaded: false
+    isLoaded: false,
+    toggleMittaus: false
   };
 
   componentDidMount() {
@@ -67,15 +69,21 @@ class App extends Component {
     });
   };
 
+  onToggleMittaus = () => {
+    this.setState({
+      toggleMittaus: !this.state.toggleMittaus
+    });
+  };
+
   render() {
     return (
       <Router>
         <div className="App">
-          <div className="container">
+          <div>
             <Header />
             <Route
               exact
-              path="/"
+              path="/Mittaukset"
               render={props => (
                 <React.Fragment>
                   <AddMittaus addMittaus={this.addMittaus} />
@@ -89,11 +97,22 @@ class App extends Component {
             <Route path="/about" component={About} />
           </div>
           <Route
-            path="/calendar"
+            exact
+            path="/"
             render={props => (
               <React.Fragment>
                 <div className="App">
-                  <AddMittaus addMittaus={this.addMittaus} />{" "}
+                  {this.state.toggleMittaus ? (
+                    <AddMittaus
+                      addMittaus={this.addMittaus}
+                      onToggleMittaus={this.onToggleMittaus}
+                    />
+                  ) : (
+                    <div className="toggleAdd" onClick={this.onToggleMittaus}>
+                      <span className="icon">add_circle</span>
+                      {" Lisää mittaus"}
+                    </div>
+                  )}{" "}
                   {!this.state.isLoaded ? (
                     <div className="Lataus"> {"Ladataan tietoja..."}</div>
                   ) : null}

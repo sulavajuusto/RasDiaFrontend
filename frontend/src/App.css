@@ -1,10 +1,3 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-
 
 a {
   color: #333;
@@ -20,18 +13,7 @@ a {
   width: 20%;
 } */
 
-.btn {
-  display: inline-block;
-  border: none;
-  background: #555;
-  color: #fff;
-  padding: 7px 20px;
-  cursor: pointer;
-}
 
-.btn:hover {
-  background: #666;
-}
 
 /* FONT IMPORTS */
 
@@ -148,17 +130,20 @@ main {
   justify-content: flex-end;
   text-align: right;
 }
+/* mittaukse */
 
 .mittaukset {
   margin-top: 3em;
-  display: block;
+  display: flex;
+  flex-direction: column;
   background: var(--bg-color);
   position: absolute;
   width: 20%;
-
+  color: var(--main-color);
   padding: 4px;
   font-weight: 700;
   font-size: 115%;
+  transition: ease-in-out 0.3s;
 }
 /* Calendar */
 
@@ -319,7 +304,7 @@ main {
   font-size: 0.7em;
   text-transform: uppercase;
   letter-spacing: 2.5px;
-  font-weight: 1000;
+  font-weight: 800;
   color: rgb(248, 48, 48);
   background-color: rgb(230, 211, 211);
   border: none;
@@ -336,4 +321,51 @@ main {
   box-shadow: 0px 15px 20px rgba(231, 35, 35, 0.4);
   color: #fff;
   transform: translateY(-7px);
+}
+
+.MittausForm {
+  display: flex;
+  width: 100%;
+  margin: 1em 25em 1em 25em;
+  flex-direction: column;
+  justify-content: center;
+  transition: 0.3s all;
+}
+
+.toggleAdd {
+  width: 20rem;
+  color: var(--main-color);
+  display: flex;
+  font-size: 200%;
+  justify-content: center;
+  color: var(--neutral-color);
+  cursor: pointer;
+}
+.btn {
+  display: inline-block;
+  justify-content: center;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #666;
+}
+
+.hideadd {
+  display: inline-block;
+  justify-content: center;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 2px 20px 5px 20px;
+  cursor: pointer;
+  font-size: 95%;
+  margin: 0px 1px 1px 2.3rem;
+}
+.hideadd:hover {
+  background: #666;
 }

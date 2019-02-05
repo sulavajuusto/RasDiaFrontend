@@ -26,16 +26,17 @@ export class MittausItem extends Component {
             <span className="icon mittausitemicon">date_range</span>
             {dateFns.format(date, "Do MMMM YYYY", { locale: fi })}
           </div>
-          <div style={mittausStyle}>
-            <span className="icon mittausitemicon">access_time</span>
-            {dateFns.format(date, "H:m", { locale: fi })}
-          </div>
           <button
             onClick={this.props.delMittaus.bind(this, mittausId)}
             className="delbutton"
           >
             x
           </button>
+          <div style={mittausStyle}>
+            <span className="icon mittausitemicon">access_time</span>
+            {dateFns.format(date, "H:m", { locale: fi })}
+          </div>
+
           <div style={mittausStyle}>
             <span className="icon mittausitemicon">colorize</span> {mittaus1}{" "}
             {" mmol/l"}
@@ -58,7 +59,7 @@ MittausItem.propTypes = {
 
 const mittausStyle = {
   flex: "10",
-  padding: "0px 50px",
+  padding: "0px 10px",
   flexWrap: "wrap"
 };
 export default MittausItem;

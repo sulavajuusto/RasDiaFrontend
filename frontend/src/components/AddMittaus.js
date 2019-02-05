@@ -95,12 +95,10 @@ export class AddMittaus extends Component {
           />
         </div>
         <div>
-          <input
-            type="submit"
-            value="Submit"
-            className="btn"
-            style={{ flex: "1" }}
-          />
+          <input type="submit" value="Submit" className="btn" />
+          <span className="hideadd" onClick={this.props.onToggleMittaus}>
+            Sulje
+          </span>
         </div>
       </form>
     );

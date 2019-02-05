@@ -18,8 +18,8 @@ function Header() {
             About
           </Link>{" "}
           |{" "}
-          <Link style={linkStyle} to="/calendar">
-            Calendar
+          <Link style={linkStyle} to="/mittaukset">
+            Mittaukset
           </Link>
         </div>
       </div>
