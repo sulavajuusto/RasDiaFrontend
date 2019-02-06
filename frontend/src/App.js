@@ -86,11 +86,17 @@ class App extends Component {
               path="/Mittaukset"
               render={props => (
                 <React.Fragment>
-                  <AddMittaus addMittaus={this.addMittaus} />
-                  <Mittaukset
-                    mittaukset={this.state.mittaukset}
-                    delMittaus={this.delMittaus}
-                  />
+                  <div className="Mittauscontainer">
+                    <div>
+                      <AddMittaus addMittaus={this.addMittaus} />
+                    </div>
+                    <div className="mittaukset2">
+                      <Mittaukset
+                        mittaukset={this.state.mittaukset}
+                        delMittaus={this.delMittaus}
+                      />
+                    </div>
+                  </div>
                 </React.Fragment>
               )}
             />
@@ -102,17 +108,6 @@ class App extends Component {
             render={props => (
               <React.Fragment>
                 <div className="App">
-                  {this.state.toggleMittaus ? (
-                    <AddMittaus
-                      addMittaus={this.addMittaus}
-                      onToggleMittaus={this.onToggleMittaus}
-                    />
-                  ) : (
-                    <div className="toggleAdd" onClick={this.onToggleMittaus}>
-                      <span className="icon">add_circle</span>
-                      {" Lisää mittaus"}
-                    </div>
-                  )}{" "}
                   {!this.state.isLoaded ? (
                     <div className="Lataus"> {"Ladataan tietoja..."}</div>
                   ) : null}
@@ -128,6 +123,17 @@ class App extends Component {
                     </div>
                   ) : null}
                   <main>
+                    {this.state.toggleMittaus ? (
+                      <AddMittaus
+                        addMittaus={this.addMittaus}
+                        onToggleMittaus={this.onToggleMittaus}
+                      />
+                    ) : (
+                      <div className="toggleAdd" onClick={this.onToggleMittaus}>
+                        <span className="icon">add_circle</span>
+                        {" Lisää mittaus"}
+                      </div>
+                    )}{" "}
                     <Calendar
                       mittaukset={this.state.mittaukset}
                       onDateClick={this.onDateClick}

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export class AddMittaus extends Component {
   state = {
-    userId: "",
+    userId: "testi",
     date: "",
     mittaus1: "",
     comment: ""
@@ -21,7 +21,7 @@ export class AddMittaus extends Component {
       this.state.comment
     );
     this.setState({
-      userId: "",
+      userId: "testi",
       date: "",
       mittaus1: "",
       comment: ""
@@ -46,8 +46,11 @@ export class AddMittaus extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit} className="MittausForm">
-        <div>
-          <input
+        {/* <div> */}
+        <div className="hideadd" onClick={this.props.onToggleMittaus}>
+          Sulje
+        </div>
+        {/* <input
             type="text"
             name="userId"
             style={{ flex: "10", padding: "10px" }}
@@ -55,12 +58,12 @@ export class AddMittaus extends Component {
             value={this.state.userId}
             onChange={this.onChange}
           />
-        </div>
+        </div> */}
         <div>
           <input
             type="text"
             name="date"
-            style={{ flex: "10", padding: "10px" }}
+            className="forms"
             placeholder="Päivämäärä"
             onFocus={this._onFocus}
             onBlur={this._onBlur}
@@ -78,8 +81,8 @@ export class AddMittaus extends Component {
           <input
             type="text"
             name="mittaus1"
-            style={{ flex: "10", padding: "10px" }}
-            placeholder="mittaustulos"
+            className="forms"
+            placeholder="Mittaustulos"
             value={this.state.mittaus1}
             onChange={this.onChange}
           />
@@ -88,7 +91,7 @@ export class AddMittaus extends Component {
           <input
             type="text"
             name="comment"
-            style={{ flex: "10", padding: "10px" }}
+            className="forms"
             placeholder="Lisäkommentti"
             value={this.state.comment}
             onChange={this.onChange}
@@ -96,9 +99,6 @@ export class AddMittaus extends Component {
         </div>
         <div>
           <input type="submit" value="Submit" className="btn" />
-          <span className="hideadd" onClick={this.props.onToggleMittaus}>
-            Sulje
-          </span>
         </div>
       </form>
     );

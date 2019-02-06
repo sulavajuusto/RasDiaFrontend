@@ -13,7 +13,8 @@ export class MittausItem extends Component {
       margin: "10px",
       textDecoration: "none",
       background: "#fff",
-      boxShadow: "0 10px 6px -6px #777"
+      boxShadow: "0 10px 6px -6px #777",
+      borderRadius: "2%"
     };
   };
 
