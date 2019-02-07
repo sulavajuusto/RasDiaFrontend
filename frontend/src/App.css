@@ -87,6 +87,7 @@ main {
   display: block;
   margin: 0 auto;
   margin-top: 3em;
+  margin-left: 20%;
   max-width: 50em;
 }
 
@@ -407,7 +408,7 @@ main {
   color: var(--main-color);
   padding: 4px;
   font-weight: 700;
-  font-size: 115%;
+  font-size: 100%;
   transition: ease-in-out 0.3s;
   
 }
