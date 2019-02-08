@@ -110,13 +110,6 @@ export class calendar extends Component {
     return <div className="body">{rows}</div>;
   }
 
-  // onDateClick = day => {
-  //   console.log(day);
-  //   this.setState({
-  //     selectedDate: day
-  //   });
-  // };
-
   nextMonth = () => {
     this.setState({
       currentMonth: dateFns.addMonths(this.state.currentMonth, 1)

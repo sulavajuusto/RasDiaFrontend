@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 
 export class AddMittaus extends Component {
   state = {
-    userId: "testi",
-    date: "",
+    userId: localStorage.getItem("currentUserid"),
+    date: this.props.selectedDate,
     mittaus1: "",
     comment: ""
   };
@@ -21,8 +21,7 @@ export class AddMittaus extends Component {
       this.state.comment
     );
     this.setState({
-      userId: "testi",
-      date: "",
+      date: this.props.selectedDate,
       mittaus1: "",
       comment: ""
     });
@@ -59,7 +58,7 @@ export class AddMittaus extends Component {
             onChange={this.onChange}
           />
         </div> */}
-        <div>
+        {/* <div>
           <input
             type="text"
             name="date"
@@ -70,13 +69,8 @@ export class AddMittaus extends Component {
             value={this.state.date}
             onChange={this.onChange}
           />
-          {/* <DatePicker
-          selected={this.state.date1}
-          onChange={this.handleChange}
-          onBlur={this._onBlur}
-          onFocus={this._onFocus}
-        /> */}
-        </div>
+          
+        </div> */}
         <div>
           <input
             type="text"

@@ -33,10 +33,10 @@ export class MittausItem extends Component {
           >
             x
           </button>
-          <div style={mittausStyle}>
+          {/* <div style={mittausStyle}>
             <span className="icon mittausitemicon">access_time</span>
             {dateFns.format(date, "H:m", { locale: fi })}
-          </div>
+          </div> */}
 
           <div style={mittausStyle}>
             <span className="icon mittausitemicon">colorize</span> {mittaus1}{" "}

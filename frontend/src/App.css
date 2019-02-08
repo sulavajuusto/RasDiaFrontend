@@ -87,8 +87,13 @@ main {
   display: block;
   margin: 0 auto;
   margin-top: 3em;
-  margin-left: 20%;
   max-width: 50em;
+}
+
+@media only screen and (max-width: 1300px) {
+  main {
+    margin-left: 20%;
+  }
 }
 
 
@@ -368,7 +373,7 @@ main {
 }
 
 .btn:hover {
-  background: #666;
+  background: var(--mittaus-color);
 }
 
 .hideadd {
@@ -413,6 +418,12 @@ main {
   
 }
 
+@media only screen and (max-width: 1320px){
+  .mittaukset {
+    font-size: 80%;
+  }
+}
+
 .mittaukset2 {
   margin-top: auto;
   display: flex;
@@ -425,4 +436,30 @@ main {
   font-weight: 700;
   font-size: 115%;
   transition: ease-in-out 0.3s;
+}
+
+.Addmittaus2 {
+  position: relative;
+  width: 51%;
+}
+
+.loginpage {
+  justify-content: center;
+}
+
+.logincontainer {
+  justify-content: center;
+  margin: auto;
+  width: 30%;
+}
+
+.logout {
+  background: var(--bg-color);
+  color: var(--neutral-color);
+  width: 5%;
+  margin: auto;
+  margin-top: 1%;
+  cursor: pointer;
+  border-radius: 3%;
+  
 }
